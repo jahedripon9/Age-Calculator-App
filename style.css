@@ -1,80 +1,199 @@
-* {
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* Align items to the top */
+    min-height: 100vh;
+    /* Ensure full viewport height */
     margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
+    background-color: #f0f4f8;
+    color: #333;
+    padding: 20px;
+    /* Padding for body */
 }
 
 .container {
-    width: 100%;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #4203a9, #90bafc);
-    color: #fff;
-    padding: 10px;
-}
-
-.calculator {
-    width: 100%;
-    min-width: 600px;
-    margin-left: 10%;
-    margin-top: 10%;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-sizing: border-box;
+    margin-top: 30px;
+    /* Adjusted margin-top for smaller devices */
 }
 
 .calculator h1 {
-    font-size: 60px;
+    margin-bottom: 20px;
+    /* Reduced margin for tighter spacing */
+    font-size: 2.5em;
+    color: #333;
+    animation: fade-in 1.5s;
 }
 
-.calculator h1 span {
-    color: #ffff76;
+.calculator span {
+    color: #fbc531;
 }
 
 .input-box {
-    margin: 40px 0;
-    padding: 35px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.3);
+    margin-bottom: 20px;
+    animation: slide-in 1s;
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
-.input-box input {
-    flex: 1;
-    margin-right: 20px;
-    padding: 14px 20px;
-    border: 0;
-    outline: 0;
-    font-size: 18px;
-    border-radius: 5px;
-    position: relative;
-
-}
-
-.input-box button {
-    background: #ffff76;
-    border: 0;
-    outline: 0;
-    padding: 15px 30px;
-    border-radius: 5px;
-    font-weight: 500;
+input[type="date"] {
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    outline: none;
+    font-size: 1em;
+    background-color: #f9f9f9;
     color: #333;
-    cursor: pointer;
+    transition: border-color 0.3s ease;
+    width: 100%;
+    max-width: 280px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
 }
 
-.input-box input::-webkit-calender-picker-indicator {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: auto;
-    height: auto;
-    position: absolute;
-    background-position: calc(100% - 10px);
-    background-size: 30px;
+input[type="date"]:focus {
+    border-color: #007BFF;
+}
+
+button {
+    padding: 15px 30px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 10px;
     cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
-#result{
-    font-size: 20px;
+
+button:disabled {
+    background-color: #bbb;
+    cursor: not-allowed;
 }
-#result span{
-    color: #ffff76;
+
+button:hover:not(:disabled) {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+#result {
+    font-size: 1.2em;
+    /* Reduced font size for smaller screens */
+    margin-top: 10px;
+    /* Decreased margin-top for less space */
+    opacity: 0;
+    animation: fade-in 1s forwards;
+    transition: opacity 0.3s ease;
+    /* Added transition for smoother opacity change */
+    max-width: 100%;
+    overflow-wrap: break-word;
+    /* Ensures long content wraps within the container */
+}
+
+#result.fade-in {
+    opacity: 1;
+}
+
+#result.error {
+    color: #ff6b6b;
+}
+
+.footer {
+    color: #333;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    padding: 10px;
+    flex-shrink: 0;
+    animation: slideInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.footer a {
+    color: #4CAF50;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #45a049;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 30px 20px;
+    }
+
+    .calculator h1 {
+        font-size: 2em;
+    }
+
+    input[type="date"],
+    button {
+        padding: 12px 24px;
+        /* Adjusted padding for better touch target */
+        font-size: 0.9em;
+        /* Slightly reduced font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        align-items: center;
+        /* Center items vertically */
+    }
+
+    .container {
+        padding: 20px 15px;
+        margin-top: 20px;
+        /* Further reduced margin-top for smaller devices */
+    }
+
+    .calculator h1 {
+        font-size: 1.5em;
+    }
+
+    input[type="date"],
+    button {
+        padding: 10px;
+        /* Adjusted padding for smaller screens */
+        font-size: 0.8em;
+        /* Reduced font size for smaller screens */
+    }
+
+    #result {
+        font-size: 1em;
+        /* Further reduced font size for smaller screens */
+    }
 }
