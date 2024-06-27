@@ -11,6 +11,10 @@ body {
     color: #333;
     padding: 20px;
     /* Padding for body */
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
+    overflow-y: auto;
+    /* Allow vertical scrolling if content exceeds viewport */
 }
 
 .container {
@@ -22,13 +26,12 @@ body {
     width: 90%;
     max-width: 400px;
     box-sizing: border-box;
-    margin-top: 30px;
-    /* Adjusted margin-top for smaller devices */
+    margin-top: 50px;
+    /* Increased margin-top for more space at the top */
 }
 
 .calculator h1 {
-    margin-bottom: 20px;
-    /* Reduced margin for tighter spacing */
+    margin-bottom: 30px;
     font-size: 2.5em;
     color: #333;
     animation: fade-in 1.5s;
@@ -88,14 +91,12 @@ button:hover:not(:disabled) {
 }
 
 #result {
-    font-size: 1.2em;
-    /* Reduced font size for smaller screens */
-    margin-top: 10px;
-    /* Decreased margin-top for less space */
+    font-size: 1.5em;
+    margin-top: 20px;
+    /* Adjusted margin-top for better spacing */
     opacity: 0;
     animation: fade-in 1s forwards;
     transition: opacity 0.3s ease;
-    /* Added transition for smoother opacity change */
     max-width: 100%;
     overflow-wrap: break-word;
     /* Ensures long content wraps within the container */
@@ -161,10 +162,8 @@ button:hover:not(:disabled) {
 
     input[type="date"],
     button {
-        padding: 12px 24px;
-        /* Adjusted padding for better touch target */
-        font-size: 0.9em;
-        /* Slightly reduced font size for smaller screens */
+        padding: 10px 20px;
+        font-size: 1em;
     }
 }
 
@@ -187,13 +186,10 @@ button:hover:not(:disabled) {
     input[type="date"],
     button {
         padding: 10px;
-        /* Adjusted padding for smaller screens */
-        font-size: 0.8em;
-        /* Reduced font size for smaller screens */
+        font-size: 0.9em;
     }
 
     #result {
-        font-size: 1em;
-        /* Further reduced font size for smaller screens */
+        font-size: 1.2em;
     }
 }
