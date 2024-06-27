@@ -2,8 +2,9 @@ body {
     font-family: 'Roboto', sans-serif;
     display: flex;
     justify-content: center;
+    /* align-items: center; */
     align-items: flex-start;
-    /* Align items to the top */
+    /* Center items vertically and horizontally */
     min-height: 100vh;
     /* Ensure full viewport height */
     margin: 0;
@@ -11,10 +12,6 @@ body {
     color: #333;
     padding: 20px;
     /* Padding for body */
-    overflow-x: hidden;
-    /* Prevent horizontal scrolling */
-    overflow-y: auto;
-    /* Allow vertical scrolling if content exceeds viewport */
 }
 
 .container {
@@ -23,15 +20,14 @@ body {
     border-radius: 20px;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 90%;
     max-width: 400px;
+    width: 100%;
     box-sizing: border-box;
-    margin-top: 50px;
-    /* Increased margin-top for more space at the top */
 }
 
 .calculator h1 {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    /* Adjusted margin-bottom for tighter spacing */
     font-size: 2.5em;
     color: #333;
     animation: fade-in 1.5s;
@@ -43,6 +39,7 @@ body {
 
 .input-box {
     margin-bottom: 20px;
+    /* Maintain space between input and button */
     animation: slide-in 1s;
     display: flex;
     flex-direction: column;
@@ -51,7 +48,7 @@ body {
 
 input[type="date"] {
     text-align: center;
-    padding: 15px;
+    padding: 12px;
     border-radius: 10px;
     border: 2px solid #ddd;
     outline: none;
@@ -62,7 +59,6 @@ input[type="date"] {
     width: 100%;
     max-width: 280px;
     box-sizing: border-box;
-    margin-bottom: 10px;
 }
 
 input[type="date"]:focus {
@@ -70,6 +66,10 @@ input[type="date"]:focus {
 }
 
 button {
+    margin-top: 10px;
+    /* Add margin space above the button */
+    margin-bottom: 10px;
+    /* Add margin space below the button */
     padding: 15px 30px;
     background-color: #007BFF;
     color: white;
@@ -162,17 +162,14 @@ button:hover:not(:disabled) {
 
     input[type="date"],
     button {
-        padding: 10px 20px;
-        font-size: 1em;
+        padding: 12px 20px;
+        /* Reduced padding for smaller screens */
+        font-size: 0.9em;
+        /* Reduced font size for smaller screens */
     }
 }
 
 @media (max-width: 480px) {
-    body {
-        align-items: center;
-        /* Center items vertically */
-    }
-
     .container {
         padding: 20px 15px;
         margin-top: 20px;
